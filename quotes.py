@@ -1,6 +1,6 @@
 from urllib.request import urlopen, Request
 from bs4 import BeautifulSoup
-import plotly.graph_objects as graph
+import plotly.graph_objects as go
 from plotly import offline
 
 authors_list = []
@@ -55,6 +55,9 @@ for tag in tags_list:
         dict_tags[tag] +=1
     else:
         dict_tags[tag] = 1
+        
+import plotly.graph_objects as go
+from plotly import offline
 
 #Author and Quotes
 top_authors = sorted(author_dictionary, key=author_dictionary.get, reverse=True)[:10]
@@ -83,7 +86,7 @@ fig_tags = {"data":data_authors, "layout":layout_tags}
 offline.plot(fig_tags,filename='python_quotes.html')
 
 
-#Tags______________
+#Tags
 top_tags = sorted(dict_tags, key=dict_tags.get, reverse=True)[:10]
 top_tag_amounts = [dict_tags[key] for key in top_tags]
 data = [
